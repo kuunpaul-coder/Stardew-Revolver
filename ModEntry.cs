@@ -77,7 +77,7 @@ public sealed class ModEntry : Mod
 
     private static void AfterWeaponClick(MeleeWeapon __instance, Farmer who, bool __state)
     {
-        if (!__state || !IsRevolver(__instance) || !who.IsLocalPlayer || !who.UsingTool)
+        if (!__state || !IsRevolver(__instance) || !who.IsLocalPlayer)
             return;
 
         var state = GetAmmoState(who);
