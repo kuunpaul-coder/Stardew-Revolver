@@ -1,0 +1,9 @@
+{
+  "Name": "Stardew Revolver",
+  "Author": "kuunpaul-coder",
+  "Version": "0.1.0",
+  "Description": "Initial Android SMAPI compatibility prototype for Stardew Revolver.",
+  "UniqueID": "kuunpaul-coder.StardewRevolver",
+  "EntryDll": "StardewRevolver.dll",
+  "MinimumApiVersion": "4.3.2"
+}
