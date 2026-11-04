@@ -22,6 +22,12 @@ jobs:
         with:
           dotnet-version: 6.0.x
 
+      - name: Generate pixel-art weapon texture
+        run: |
+          python3 -m pip install --user pillow
+          mkdir -p assets
+          python3 assets/generate_revolver.py
+
       - name: Build
         run: dotnet build StardewRevolver.csproj --configuration Release
 
