@@ -3,6 +3,7 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.GameData.Weapons;
+using StardewValley.GameData.Shops;
 
 namespace StardewRevolver;
 
@@ -24,6 +25,28 @@ public sealed class ModEntry : Mod
         if (e.NameWithoutLocale.IsEquivalentTo(TextureAsset))
         {
             e.LoadFromModFile<Texture2D>("assets/revolver.png", AssetLoadPriority.Exclusive);
+            return;
+        }
+
+        if (e.NameWithoutLocale.IsEquivalentTo("Data/Shops"))
+        {
+            e.Edit(asset =>
+            {
+                var shops = asset.AsDictionary<string, ShopData>().Data;
+                if (!shops.TryGetValue("AdventureShop", out var guildShop))
+                    return;
+
+                if (!guildShop.Items.Any(item => item.Id == WeaponId))
+                {
+                    guildShop.Items.Add(new ShopItemData
+                    {
+                        Id = WeaponId,
+                        ItemId = $"(W){WeaponId}",
+                        Price = 15000,
+                        AvailableStock = -1
+                    });
+                }
+            });
             return;
         }
 
