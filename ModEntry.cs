@@ -73,8 +73,9 @@ public sealed class ModEntry : Mod
                     MineBaseLevel = -1,
                     MineMinLevel = -1,
                     Projectiles =
-                    [
-                        new WeaponProjectileData
+                    new List<WeaponProjectile>
+                    {
+                        new WeaponProjectile
                         {
                             Id = "revolver_bullet",
                             Damage = 40,
@@ -86,7 +87,7 @@ public sealed class ModEntry : Mod
                             CollisionSound = "clubhit",
                             SpriteIndex = 11
                         }
-                    ]
+                    }
                 };
             });
         }
