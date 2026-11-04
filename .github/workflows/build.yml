@@ -14,6 +14,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Add Stardew Valley reference assemblies
+        uses: Pathoschild/SMAPI-ModBuildWorkflow/add-reference-assemblies@v1
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
